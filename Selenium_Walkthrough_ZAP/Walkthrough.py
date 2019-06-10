@@ -6,7 +6,7 @@ from zapv2 import ZAPv2 as ZAP
 import time
 
 class WeCareAuthScript(object):
-    def __init__(self, proxy_host = 'localhost', proxy_port = '8090', target = 'http://localhost:9000'):
+    def __init__(self, proxy_host = 'localhost', proxy_port = '8090', target = 'http://192.168.0.223:9000'):
         self.proxy_host = proxy_host
         self.proxy_port = proxy_port
         self.target = target
@@ -77,7 +77,7 @@ class WeCareAuthScript(object):
 proxy_host = os.environ.get('ZAP_IP','localhost') 
 proxy_port = os.environ.get('ZAP_PORT',8090) 
 proxy_url = "http://{0}:{1}".format(proxy_host,proxy_port)
-target_site = 'http://localhost:9000'
+target_site = 'http://192.168.0.223:9000'
 
 zap = ZAP(proxies = {'http': proxy_url, 'https': proxy_url})
 policies = zap.ascan.scan_policy_names
