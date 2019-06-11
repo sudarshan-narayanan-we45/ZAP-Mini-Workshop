@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.1 (Python 3.7.2 on darwin)" generated="20190611 07:19:06.044" rpa="false">
+<suite id="s1" name="Walkthrough" source="/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/Walkthrough.robot">
+<test id="s1-t1" name="Login to Wecare application">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20190611 07:19:07.167" level="INFO">Opening browser 'headlessfirefox' to base url 'http://192.168.1.7:9000/'.</msg>
+<msg timestamp="20190611 07:19:08.191" level="DEBUG">POST http://127.0.0.1:54407/session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, "moz:firefoxOptions": {"profile": "UEsDBBQAAAAIAGQ6y04+3NKsfgMAAM0MAAAHAAAAdXNlci5qc6VWTW/UMBC98ytQTyCx1rbABU6lFAkJUcSq4mg59mTjrmMbe7zp/nvGyaYsbb6AWz7e89hvZt44RQjcByhfnBXBNfTGlKtZo61yDVOp9gysKAyos1fPMSR4+f5ZesoxAiGEZE/ApTBxBG2hQVGwFAzhzkThEr4rjLC7sym8F1tYtn5EETB5lhmEXE+jKlfDEblgL49Z3O3p5FoBqyM6266it9YFGFmAPqkb+6MVOJ6vmbYY3O33L9Phc1Jqcc9lFSgwjzJoj5wU56jrHPT1epiwDBnAu4BcGMPvIod7CR61s3Ew6XdiL7plmetgLFau+Wyv6NEZGCRZwMaFHZOCKHtY5XjCrAiw13ImrxFkChoPTMa+HEeAj5PTgJFZr9lSm2IyoZTO5xQzizRQqECHC1zIrCBPlNsUERSXEHBYzRNSjClHfCBp+gBhhtXpwa3IsnLYgx0JJLxnySvqVCYSumEFT0CLWk3p6I04gLo+X2++OqRcEuHNCNg11jihqDAtaRzasvlRgd1k9bXdTse6vv1yyfp2m7SjFvmadVmYsy5td1THYKnsycS6JF/MYcmSOo8cB7uyJPxIpfagAEJlZQBB0k4/6RDxkrSQI230YEOihPaZVFtoiqeMWphGhKV2CiLI6lgWc1BTxuRzc/f2PuajEGO2DiSnJBXayi/J27gMIlYzUSowhskK5O4jlCIZ/ND9mabRDImMjm1v7JVxceYoJ+gbyvgwmBQRnXdmVSsQBqvunS1ytgl+8rlVrv+R3Ucvc0F9T3+/feO22/xRdp7+F/vwzmh5YPnjJhW1bvP8v/xv7cfL3w09tAzs0TkTGTmEC8eNT15f8ugjB2sNtG1rRXPGbnlWfjhG9gjbFm5roh878kYSO7vu+XoUXhgnd0ZHnK6IE0Zb4Feu9mTthTZ5AFq9rdAcZqlLLPwp3JJ/l4fb0UY6GfxTqvajvnP51dEHVzRiMcXhlXtKhUjXtkrH6rDKvz3NxJUBu8VsCRdv3/5J65emqUX5MMY1vDhw1XnC4N48WYzHmLub104Js/DmUWoD9MRc0NQWvKvRfJmawUcMWiJ/TBsKlW+NlqywhrqAsGlfR+TKZb7TyI6y9eP0WMqDB+8pCIYiYDiwTor25Bdz2EmRnsID3LXjbHAn916T7VO2WD4y1QS5PzF+Jh3GIvymNJWmMLmLBhi/AFBLAQIUAxQAAAAIAGQ6y04+3NKsfgMAAM0MAAAHAAAAAAAAAAAAAACkgQAAAAB1c2VyLmpzUEsFBgAAAAABAAEANQAAAKMDAAAAAA==", "args": ["-headless"]}}}, "desiredCapabilities": {"browserName": "firefox", "acceptInsecureCerts": true, "marionette": true, "moz:firefoxOptions": {"profile": "UEsDBBQAAAAIAGQ6y04+3NKsfgMAAM0MAAAHAAAAdXNlci5qc6VWTW/UMBC98ytQTyCx1rbABU6lFAkJUcSq4mg59mTjrmMbe7zp/nvGyaYsbb6AWz7e89hvZt44RQjcByhfnBXBNfTGlKtZo61yDVOp9gysKAyos1fPMSR4+f5ZesoxAiGEZE/ApTBxBG2hQVGwFAzhzkThEr4rjLC7sym8F1tYtn5EETB5lhmEXE+jKlfDEblgL49Z3O3p5FoBqyM6266it9YFGFmAPqkb+6MVOJ6vmbYY3O33L9Phc1Jqcc9lFSgwjzJoj5wU56jrHPT1epiwDBnAu4BcGMPvIod7CR61s3Ew6XdiL7plmetgLFau+Wyv6NEZGCRZwMaFHZOCKHtY5XjCrAiw13ImrxFkChoPTMa+HEeAj5PTgJFZr9lSm2IyoZTO5xQzizRQqECHC1zIrCBPlNsUERSXEHBYzRNSjClHfCBp+gBhhtXpwa3IsnLYgx0JJLxnySvqVCYSumEFT0CLWk3p6I04gLo+X2++OqRcEuHNCNg11jihqDAtaRzasvlRgd1k9bXdTse6vv1yyfp2m7SjFvmadVmYsy5td1THYKnsycS6JF/MYcmSOo8cB7uyJPxIpfagAEJlZQBB0k4/6RDxkrSQI230YEOihPaZVFtoiqeMWphGhKV2CiLI6lgWc1BTxuRzc/f2PuajEGO2DiSnJBXayi/J27gMIlYzUSowhskK5O4jlCIZ/ND9mabRDImMjm1v7JVxceYoJ+gbyvgwmBQRnXdmVSsQBqvunS1ytgl+8rlVrv+R3Ucvc0F9T3+/feO22/xRdp7+F/vwzmh5YPnjJhW1bvP8v/xv7cfL3w09tAzs0TkTGTmEC8eNT15f8ugjB2sNtG1rRXPGbnlWfjhG9gjbFm5roh878kYSO7vu+XoUXhgnd0ZHnK6IE0Zb4Feu9mTthTZ5AFq9rdAcZqlLLPwp3JJ/l4fb0UY6GfxTqvajvnP51dEHVzRiMcXhlXtKhUjXtkrH6rDKvz3NxJUBu8VsCRdv3/5J65emqUX5MMY1vDhw1XnC4N48WYzHmLub104Js/DmUWoD9MRc0NQWvKvRfJmawUcMWiJ/TBsKlW+NlqywhrqAsGlfR+TKZb7TyI6y9eP0WMqDB+8pCIYiYDiwTor25Bdz2EmRnsID3LXjbHAn916T7VO2WD4y1QS5PzF+Jh3GIvymNJWmMLmLBhi/AFBLAQIUAxQAAAAIAGQ6y04+3NKsfgMAAM0MAAAHAAAAAAAAAAAAAACkgQAAAAB1c2VyLmpzUEsFBgAAAAABAAEANQAAAKMDAAAAAA==", "args": ["-headless"]}}}</msg>
+<msg timestamp="20190611 07:19:08.192" level="DEBUG">Starting new HTTP connection (1): 127.0.0.1</msg>
+<msg timestamp="20190611 07:19:12.339" level="DEBUG">http://127.0.0.1:54407 "POST /session HTTP/1.1" 200 743</msg>
+<msg timestamp="20190611 07:19:12.341" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:12.341" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"script": 5000}</msg>
+<msg timestamp="20190611 07:19:12.359" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:12.359" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:12.359" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 0}</msg>
+<msg timestamp="20190611 07:19:12.362" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:12.363" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:12.363" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url {"url": "http://192.168.1.7:9000/"}</msg>
+<msg timestamp="20190611 07:19:13.348" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:13.349" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:13.349" level="DEBUG">Opened browser with session id 3ecd2a93-ed39-5c47-aad1-9ef733ecf150.</msg>
+<status status="PASS" starttime="20190611 07:19:07.167" endtime="20190611 07:19:13.350"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:13.357" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:13.451" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:13.451" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:13.355" endtime="20190611 07:19:13.452"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<msg timestamp="20190611 07:19:13.452" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/window/maximize {}</msg>
+<msg timestamp="20190611 07:19:13.464" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/window/maximize HTTP/1.1" 200 49</msg>
+<msg timestamp="20190611 07:19:13.464" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:13.452" endtime="20190611 07:19:13.464"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}login/</arg>
+</arguments>
+<msg timestamp="20190611 07:19:13.465" level="INFO">Opening url 'http://192.168.1.7:9000/login/'</msg>
+<msg timestamp="20190611 07:19:13.465" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url {"url": "http://192.168.1.7:9000/login/"}</msg>
+<msg timestamp="20190611 07:19:13.952" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:13.952" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:13.465" endtime="20190611 07:19:13.952"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:13.954" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:13.983" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:13.984" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:13.953" endtime="20190611 07:19:13.984"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20190611 07:19:18.986" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20190611 07:19:13.984" endtime="20190611 07:19:18.986"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div/section/form/div[1]/input</arg>
+<arg>bruce.banner@we45.com</arg>
+</arguments>
+<msg timestamp="20190611 07:19:18.987" level="INFO">Typing text 'bruce.banner@we45.com' into text field 'xpath=/html/body/div/div/section/form/div[1]/input'.</msg>
+<msg timestamp="20190611 07:19:18.987" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div/div/section/form/div[1]/input"}</msg>
+<msg timestamp="20190611 07:19:19.005" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:19:19.006" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:19.006" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/c25b1522-8cf1-5348-ae12-e4b9dbeb4c0f/clear {"id": "c25b1522-8cf1-5348-ae12-e4b9dbeb4c0f"}</msg>
+<msg timestamp="20190611 07:19:19.020" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/c25b1522-8cf1-5348-ae12-e4b9dbeb4c0f/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:19.020" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:19.021" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/c25b1522-8cf1-5348-ae12-e4b9dbeb4c0f/value {"text": "bruce.banner@we45.com", "value": ["b", "r", "u", "c", "e", ".", "b", "a", "n", "n", "e", "r", "@", "w", "e", "4", "5", ".", "c", "o", "m"], "id": "c25b1522-8cf1-5348-ae12-e4b9dbeb4c0f"}</msg>
+<msg timestamp="20190611 07:19:19.068" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/c25b1522-8cf1-5348-ae12-e4b9dbeb4c0f/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:19.068" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:18.986" endtime="20190611 07:19:19.068"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:19.070" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:19.075" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:19.076" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:19.069" endtime="20190611 07:19:19.076"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div/section/form/div[2]/input</arg>
+<arg>secdevops</arg>
+</arguments>
+<msg timestamp="20190611 07:19:19.079" level="INFO">Typing text 'secdevops' into text field 'xpath=/html/body/div/div/section/form/div[2]/input'.</msg>
+<msg timestamp="20190611 07:19:19.079" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div/div/section/form/div[2]/input"}</msg>
+<msg timestamp="20190611 07:19:19.089" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:19:19.090" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:19.090" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/a54253e0-499a-a540-bce0-4f07af0830f3/clear {"id": "a54253e0-499a-a540-bce0-4f07af0830f3"}</msg>
+<msg timestamp="20190611 07:19:19.102" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/a54253e0-499a-a540-bce0-4f07af0830f3/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:19.103" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:19.103" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/a54253e0-499a-a540-bce0-4f07af0830f3/value {"text": "secdevops", "value": ["s", "e", "c", "d", "e", "v", "o", "p", "s"], "id": "a54253e0-499a-a540-bce0-4f07af0830f3"}</msg>
+<msg timestamp="20190611 07:19:19.126" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/a54253e0-499a-a540-bce0-4f07af0830f3/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:19.127" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:19.078" endtime="20190611 07:19:19.127"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:19.129" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:19.133" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:19.133" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:19.128" endtime="20190611 07:19:19.134"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div/div/section/form/div[3]/button</arg>
+</arguments>
+<msg timestamp="20190611 07:19:19.135" level="INFO">Clicking element 'xpath=/html/body/div/div/section/form/div[3]/button'.</msg>
+<msg timestamp="20190611 07:19:19.136" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div/div/section/form/div[3]/button"}</msg>
+<msg timestamp="20190611 07:19:19.145" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:19:19.146" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:19.146" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/13c57927-d492-2f43-aabf-fea9bee6685f/click {"id": "13c57927-d492-2f43-aabf-fea9bee6685f"}</msg>
+<msg timestamp="20190611 07:19:20.077" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/13c57927-d492-2f43-aabf-fea9bee6685f/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:20.077" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:19.135" endtime="20190611 07:19:20.078"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:20.079" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:20.096" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:20.096" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:20.078" endtime="20190611 07:19:20.097"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20190611 07:19:25.099" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20190611 07:19:20.097" endtime="20190611 07:19:25.100"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}technicians/</arg>
+</arguments>
+<msg timestamp="20190611 07:19:25.101" level="INFO">Opening url 'http://192.168.1.7:9000/technicians/'</msg>
+<msg timestamp="20190611 07:19:25.102" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url {"url": "http://192.168.1.7:9000/technicians/"}</msg>
+<msg timestamp="20190611 07:19:25.432" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:25.432" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:25.100" endtime="20190611 07:19:25.433"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:25.434" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:25.468" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:25.469" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:25.433" endtime="20190611 07:19:25.469"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20190611 07:19:30.470" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20190611 07:19:25.469" endtime="20190611 07:19:30.471"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}appointment/plan</arg>
+</arguments>
+<msg timestamp="20190611 07:19:30.472" level="INFO">Opening url 'http://192.168.1.7:9000/appointment/plan'</msg>
+<msg timestamp="20190611 07:19:30.472" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url {"url": "http://192.168.1.7:9000/appointment/plan"}</msg>
+<msg timestamp="20190611 07:19:30.753" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:30.754" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:30.471" endtime="20190611 07:19:30.754"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:30.755" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:30.768" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:30.769" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:30.755" endtime="20190611 07:19:30.769"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20190611 07:19:35.770" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20190611 07:19:30.769" endtime="20190611 07:19:35.771"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}appointment/doctor</arg>
+</arguments>
+<msg timestamp="20190611 07:19:35.772" level="INFO">Opening url 'http://192.168.1.7:9000/appointment/doctor'</msg>
+<msg timestamp="20190611 07:19:35.772" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url {"url": "http://192.168.1.7:9000/appointment/doctor"}</msg>
+<msg timestamp="20190611 07:19:36.240" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:36.241" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:35.771" endtime="20190611 07:19:36.241"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:36.243" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:36.272" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:36.272" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:36.242" endtime="20190611 07:19:36.273"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20190611 07:19:41.275" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20190611 07:19:36.273" endtime="20190611 07:19:41.276"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}secure_tests/</arg>
+</arguments>
+<msg timestamp="20190611 07:19:41.277" level="INFO">Opening url 'http://192.168.1.7:9000/secure_tests/'</msg>
+<msg timestamp="20190611 07:19:41.277" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url {"url": "http://192.168.1.7:9000/secure_tests/"}</msg>
+<msg timestamp="20190611 07:19:41.624" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:41.624" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:41.276" endtime="20190611 07:19:41.625"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:41.626" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:41.637" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:41.637" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:41.625" endtime="20190611 07:19:41.637"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20190611 07:19:46.641" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20190611 07:19:41.638" endtime="20190611 07:19:46.641"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div[2]/div/div[3]/form/div/input[1]</arg>
+<arg>selenium test</arg>
+</arguments>
+<msg timestamp="20190611 07:19:46.642" level="INFO">Typing text 'selenium test' into text field 'xpath=/html/body/div[2]/div/div[3]/form/div/input[1]'.</msg>
+<msg timestamp="20190611 07:19:46.643" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div[2]/div/div[3]/form/div/input[1]"}</msg>
+<msg timestamp="20190611 07:19:46.650" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:19:46.651" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:46.651" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/a94fea5a-46ea-c943-9994-555383dbd7f3/clear {"id": "a94fea5a-46ea-c943-9994-555383dbd7f3"}</msg>
+<msg timestamp="20190611 07:19:46.659" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/a94fea5a-46ea-c943-9994-555383dbd7f3/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:46.661" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:46.662" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/a94fea5a-46ea-c943-9994-555383dbd7f3/value {"text": "selenium test", "value": ["s", "e", "l", "e", "n", "i", "u", "m", " ", "t", "e", "s", "t"], "id": "a94fea5a-46ea-c943-9994-555383dbd7f3"}</msg>
+<msg timestamp="20190611 07:19:46.719" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/a94fea5a-46ea-c943-9994-555383dbd7f3/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:46.720" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:46.642" endtime="20190611 07:19:46.720"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:46.721" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:46.727" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:46.728" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:46.721" endtime="20190611 07:19:46.728"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}tests/</arg>
+</arguments>
+<msg timestamp="20190611 07:19:46.729" level="INFO">Opening url 'http://192.168.1.7:9000/tests/'</msg>
+<msg timestamp="20190611 07:19:46.729" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url {"url": "http://192.168.1.7:9000/tests/"}</msg>
+<msg timestamp="20190611 07:19:47.056" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:47.056" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:46.729" endtime="20190611 07:19:47.057"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:47.058" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:47.065" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:47.065" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:47.057" endtime="20190611 07:19:47.066"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20190611 07:19:52.067" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20190611 07:19:47.066" endtime="20190611 07:19:52.067"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div[2]/div/div[3]/form/div/input[1]</arg>
+<arg>selenium test</arg>
+</arguments>
+<msg timestamp="20190611 07:19:52.068" level="INFO">Typing text 'selenium test' into text field 'xpath=/html/body/div[2]/div/div[3]/form/div/input[1]'.</msg>
+<msg timestamp="20190611 07:19:52.069" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div[2]/div/div[3]/form/div/input[1]"}</msg>
+<msg timestamp="20190611 07:19:52.077" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:19:52.077" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:52.077" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/043bc69a-81b9-414c-8789-70ba118feb57/clear {"id": "043bc69a-81b9-414c-8789-70ba118feb57"}</msg>
+<msg timestamp="20190611 07:19:52.085" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/043bc69a-81b9-414c-8789-70ba118feb57/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:52.086" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:52.086" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/043bc69a-81b9-414c-8789-70ba118feb57/value {"text": "selenium test", "value": ["s", "e", "l", "e", "n", "i", "u", "m", " ", "t", "e", "s", "t"], "id": "043bc69a-81b9-414c-8789-70ba118feb57"}</msg>
+<msg timestamp="20190611 07:19:52.136" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/043bc69a-81b9-414c-8789-70ba118feb57/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:52.136" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:52.068" endtime="20190611 07:19:52.137"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:52.137" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:52.141" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:52.141" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:52.137" endtime="20190611 07:19:52.142"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div[2]/div/div[3]/form/div/input[2]</arg>
+</arguments>
+<msg timestamp="20190611 07:19:52.142" level="INFO">Clicking element 'xpath=/html/body/div[2]/div/div[3]/form/div/input[2]'.</msg>
+<msg timestamp="20190611 07:19:52.142" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div[2]/div/div[3]/form/div/input[2]"}</msg>
+<msg timestamp="20190611 07:19:52.150" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:19:52.150" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:52.150" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/8771e8e6-4d8a-744e-b4c2-ffdfe05fd0c7/click {"id": "8771e8e6-4d8a-744e-b4c2-ffdfe05fd0c7"}</msg>
+<msg timestamp="20190611 07:19:52.578" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/8771e8e6-4d8a-744e-b4c2-ffdfe05fd0c7/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:52.579" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:52.142" endtime="20190611 07:19:52.579"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:52.581" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:52.600" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:52.601" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:52.580" endtime="20190611 07:19:52.602"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}plans</arg>
+</arguments>
+<msg timestamp="20190611 07:19:52.605" level="INFO">Opening url 'http://192.168.1.7:9000/plans'</msg>
+<msg timestamp="20190611 07:19:52.605" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url {"url": "http://192.168.1.7:9000/plans"}</msg>
+<msg timestamp="20190611 07:19:53.200" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:53.200" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:52.602" endtime="20190611 07:19:53.201"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:53.202" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:53.210" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:53.211" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:53.201" endtime="20190611 07:19:53.211"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20190611 07:19:55.213" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20190611 07:19:53.211" endtime="20190611 07:19:55.213"></status>
+</kw>
+<status status="PASS" starttime="20190611 07:19:07.166" endtime="20190611 07:19:55.214" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Secure Password">
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}password_change</arg>
+</arguments>
+<msg timestamp="20190611 07:19:55.226" level="INFO">Opening url 'http://192.168.1.7:9000/password_change'</msg>
+<msg timestamp="20190611 07:19:55.227" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url {"url": "http://192.168.1.7:9000/password_change"}</msg>
+<msg timestamp="20190611 07:19:55.652" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:55.653" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:55.226" endtime="20190611 07:19:55.653"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:55.658" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:55.666" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:55.667" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:55.657" endtime="20190611 07:19:55.667"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20190611 07:19:57.669" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20190611 07:19:55.668" endtime="20190611 07:19:57.669"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[1]/div[2]/div/div/input</arg>
+<arg>secdevops</arg>
+</arguments>
+<msg timestamp="20190611 07:19:57.671" level="INFO">Typing text 'secdevops' into text field 'xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[1]/div[2]/div/div/input'.</msg>
+<msg timestamp="20190611 07:19:57.671" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div[2]/div/div[3]/div/div[2]/form/div[1]/div[2]/div/div/input"}</msg>
+<msg timestamp="20190611 07:19:57.681" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:19:57.682" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:57.682" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/1a82554d-ac4d-f342-bdd2-b53054e0f55b/clear {"id": "1a82554d-ac4d-f342-bdd2-b53054e0f55b"}</msg>
+<msg timestamp="20190611 07:19:57.693" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/1a82554d-ac4d-f342-bdd2-b53054e0f55b/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:57.694" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:57.694" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/1a82554d-ac4d-f342-bdd2-b53054e0f55b/value {"text": "secdevops", "value": ["s", "e", "c", "d", "e", "v", "o", "p", "s"], "id": "1a82554d-ac4d-f342-bdd2-b53054e0f55b"}</msg>
+<msg timestamp="20190611 07:19:57.734" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/1a82554d-ac4d-f342-bdd2-b53054e0f55b/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:57.735" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:57.670" endtime="20190611 07:19:57.735"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:57.736" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:57.741" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:57.742" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:57.735" endtime="20190611 07:19:57.743"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[2]/div[2]/div/div/input</arg>
+<arg>secdevops</arg>
+</arguments>
+<msg timestamp="20190611 07:19:57.744" level="INFO">Typing text 'secdevops' into text field 'xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[2]/div[2]/div/div/input'.</msg>
+<msg timestamp="20190611 07:19:57.744" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div[2]/div/div[3]/div/div[2]/form/div[2]/div[2]/div/div/input"}</msg>
+<msg timestamp="20190611 07:19:57.752" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:19:57.753" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:57.753" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/db580a30-ca20-bd4b-944d-a4b4b7a3453a/clear {"id": "db580a30-ca20-bd4b-944d-a4b4b7a3453a"}</msg>
+<msg timestamp="20190611 07:19:57.764" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/db580a30-ca20-bd4b-944d-a4b4b7a3453a/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:57.765" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:57.766" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/db580a30-ca20-bd4b-944d-a4b4b7a3453a/value {"text": "secdevops", "value": ["s", "e", "c", "d", "e", "v", "o", "p", "s"], "id": "db580a30-ca20-bd4b-944d-a4b4b7a3453a"}</msg>
+<msg timestamp="20190611 07:19:57.843" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/db580a30-ca20-bd4b-944d-a4b4b7a3453a/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:57.845" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:57.743" endtime="20190611 07:19:57.846"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:57.848" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:57.862" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:57.862" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:57.846" endtime="20190611 07:19:57.863"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[3]/button</arg>
+</arguments>
+<msg timestamp="20190611 07:19:57.864" level="INFO">Clicking element 'xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[3]/button'.</msg>
+<msg timestamp="20190611 07:19:57.865" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div[2]/div/div[3]/div/div[2]/form/div[3]/button"}</msg>
+<msg timestamp="20190611 07:19:57.881" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:19:57.882" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:19:57.883" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/4704000f-5ba0-3541-a43c-3783fa6def58/click {"id": "4704000f-5ba0-3541-a43c-3783fa6def58"}</msg>
+<msg timestamp="20190611 07:19:58.321" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/4704000f-5ba0-3541-a43c-3783fa6def58/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:58.321" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:57.864" endtime="20190611 07:19:58.322"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:58.323" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:58.333" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:58.334" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:58.322" endtime="20190611 07:19:58.334"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${URL}password_change_secure</arg>
+</arguments>
+<msg timestamp="20190611 07:19:58.335" level="INFO">Opening url 'http://192.168.1.7:9000/password_change_secure'</msg>
+<msg timestamp="20190611 07:19:58.335" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url {"url": "http://192.168.1.7:9000/password_change_secure"}</msg>
+<msg timestamp="20190611 07:19:58.999" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/url HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:59.000" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:58.334" endtime="20190611 07:19:59.000"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:19:59.002" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:19:59.023" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:19:59.024" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:19:59.001" endtime="20190611 07:19:59.024"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20190611 07:20:01.025" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20190611 07:19:59.025" endtime="20190611 07:20:01.026"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[1]/div[2]/div/div/input</arg>
+<arg>secdevops</arg>
+</arguments>
+<msg timestamp="20190611 07:20:01.027" level="INFO">Typing text 'secdevops' into text field 'xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[1]/div[2]/div/div/input'.</msg>
+<msg timestamp="20190611 07:20:01.027" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div[2]/div/div[3]/div/div[2]/form/div[1]/div[2]/div/div/input"}</msg>
+<msg timestamp="20190611 07:20:01.038" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:20:01.038" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:20:01.039" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/6e149289-aade-bd4e-8846-f24fe618ac3e/clear {"id": "6e149289-aade-bd4e-8846-f24fe618ac3e"}</msg>
+<msg timestamp="20190611 07:20:01.048" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/6e149289-aade-bd4e-8846-f24fe618ac3e/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:20:01.048" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:20:01.048" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/6e149289-aade-bd4e-8846-f24fe618ac3e/value {"text": "secdevops", "value": ["s", "e", "c", "d", "e", "v", "o", "p", "s"], "id": "6e149289-aade-bd4e-8846-f24fe618ac3e"}</msg>
+<msg timestamp="20190611 07:20:01.078" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/6e149289-aade-bd4e-8846-f24fe618ac3e/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:20:01.079" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:20:01.026" endtime="20190611 07:20:01.079"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:20:01.080" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:20:01.084" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:20:01.084" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:20:01.080" endtime="20190611 07:20:01.085"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[2]/div[2]/div/div/input</arg>
+<arg>secdevops</arg>
+</arguments>
+<msg timestamp="20190611 07:20:01.085" level="INFO">Typing text 'secdevops' into text field 'xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[2]/div[2]/div/div/input'.</msg>
+<msg timestamp="20190611 07:20:01.086" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div[2]/div/div[3]/div/div[2]/form/div[2]/div[2]/div/div/input"}</msg>
+<msg timestamp="20190611 07:20:01.092" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:20:01.092" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:20:01.093" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/9ef88230-c04f-b34c-b739-c41363a9e10b/clear {"id": "9ef88230-c04f-b34c-b739-c41363a9e10b"}</msg>
+<msg timestamp="20190611 07:20:01.099" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/9ef88230-c04f-b34c-b739-c41363a9e10b/clear HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:20:01.099" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:20:01.099" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/9ef88230-c04f-b34c-b739-c41363a9e10b/value {"text": "secdevops", "value": ["s", "e", "c", "d", "e", "v", "o", "p", "s"], "id": "9ef88230-c04f-b34c-b739-c41363a9e10b"}</msg>
+<msg timestamp="20190611 07:20:01.130" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/9ef88230-c04f-b34c-b739-c41363a9e10b/value HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:20:01.130" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:20:01.085" endtime="20190611 07:20:01.131"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:20:01.132" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:20:01.135" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:20:01.135" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:20:01.131" endtime="20190611 07:20:01.135"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[3]/button</arg>
+</arguments>
+<msg timestamp="20190611 07:20:01.136" level="INFO">Clicking element 'xpath=/html/body/div[2]/div/div[3]/div/div[2]/form/div[3]/button'.</msg>
+<msg timestamp="20190611 07:20:01.136" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements {"using": "xpath", "value": "/html/body/div[2]/div/div[3]/div/div[2]/form/div[3]/button"}</msg>
+<msg timestamp="20190611 07:20:01.143" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/elements HTTP/1.1" 200 90</msg>
+<msg timestamp="20190611 07:20:01.143" level="DEBUG">Finished Request</msg>
+<msg timestamp="20190611 07:20:01.143" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/2adb7637-7271-6e48-b260-3ae07ebc33ad/click {"id": "2adb7637-7271-6e48-b260-3ae07ebc33ad"}</msg>
+<msg timestamp="20190611 07:20:01.420" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/element/2adb7637-7271-6e48-b260-3ae07ebc33ad/click HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:20:01.420" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:20:01.136" endtime="20190611 07:20:01.421"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<msg timestamp="20190611 07:20:01.422" level="DEBUG">POST http://127.0.0.1:54407/session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts {"implicit": 10000}</msg>
+<msg timestamp="20190611 07:20:01.430" level="DEBUG">http://127.0.0.1:54407 "POST /session/3ecd2a93-ed39-5c47-aad1-9ef733ecf150/timeouts HTTP/1.1" 200 14</msg>
+<msg timestamp="20190611 07:20:01.430" level="DEBUG">Finished Request</msg>
+<status status="PASS" starttime="20190611 07:20:01.421" endtime="20190611 07:20:01.431"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20190611 07:20:03.432" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20190611 07:20:01.431" endtime="20190611 07:20:03.432"></status>
+</kw>
+<status status="PASS" starttime="20190611 07:19:55.225" endtime="20190611 07:20:03.433" critical="yes"></status>
+</test>
+<test id="s1-t3" name="Start ZAP">
+<kw name="Start Headless Zap" library="RoboZap">
+<doc>Start OWASP ZAP without a GUI</doc>
+<arguments>
+<arg>${ZAP_PATH}</arg>
+</arguments>
+<msg timestamp="20190611 07:20:03.441" level="INFO">/Applications/OWASP ZAP.app/Contents/Java/zap.shzap.sh -daemon -config api.disablekey=true -port 8090
+ZAP Path is not configured correctly</msg>
+<status status="PASS" starttime="20190611 07:20:03.435" endtime="20190611 07:20:03.442"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>30</arg>
+</arguments>
+<msg timestamp="20190611 07:20:33.445" level="INFO">Slept 30 seconds</msg>
+<status status="PASS" starttime="20190611 07:20:03.443" endtime="20190611 07:20:33.446"></status>
+</kw>
+<kw name="Zap Open Url" library="RoboZap">
+<doc>Invoke URLOpen with ZAP</doc>
+<arguments>
+<arg>${ZAP_TARGET}</arg>
+</arguments>
+<msg timestamp="20190611 07:20:33.477" level="DEBUG">Starting new HTTP connection (1): 192.168.1.7</msg>
+<msg timestamp="20190611 07:20:33.486" level="FAIL">ProxyError: HTTPConnectionPool(host='192.168.1.7', port=8090): Max retries exceeded with url: http://192.168.1.7:9000/ (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10f81ba90&gt;: Failed to establish a new connection: [Errno 61] Connection refused')))</msg>
+<msg timestamp="20190611 07:20:33.486" level="DEBUG">Traceback (most recent call last):
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/RoboZap.py", line 83, in zap_open_url
+    self.zap.urlopen(url)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/zapv2/__init__.py", line 124, in urlopen
+    return requests.get(url, proxies=self.__proxies, verify=False, *args, **kwargs).text
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/api.py", line 72, in get
+    return request('get', url, params=params, **kwargs)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/adapters.py", line 502, in send
+    raise ProxyError(e, request=request)</msg>
+<status status="FAIL" starttime="20190611 07:20:33.446" endtime="20190611 07:20:33.486"></status>
+</kw>
+<status status="FAIL" starttime="20190611 07:20:03.434" endtime="20190611 07:20:33.487" critical="yes">ProxyError: HTTPConnectionPool(host='192.168.1.7', port=8090): Max retries exceeded with url: http://192.168.1.7:9000/ (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10f81ba90&gt;: Failed to establish a new connection: [Errno 61] Connection refused')))</status>
+</test>
+<test id="s1-t4" name="ZAP Contextualize">
+<kw name="Zap Define Context" library="RoboZap">
+<doc>Add Target to a context and use the context to perform all scanning/spidering operations</doc>
+<arguments>
+<arg>${CONTEXT}</arg>
+<arg>${ZAP_TARGET}</arg>
+</arguments>
+<assign>
+<var>${contextid}</var>
+</assign>
+<msg timestamp="20190611 07:20:33.830" level="DEBUG">Starting new HTTP connection (1): 192.168.1.7</msg>
+<msg timestamp="20190611 07:20:33.834" level="FAIL">ProxyError: HTTPConnectionPool(host='192.168.1.7', port=8090): Max retries exceeded with url: http://zap/JSON/context/action/newContext/?contextName=SecDevOps&amp;apikey= (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10ed05320&gt;: Failed to establish a new connection: [Errno 61] Connection refused')))</msg>
+<msg timestamp="20190611 07:20:33.834" level="DEBUG">Traceback (most recent call last):
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/RoboZap.py", line 96, in zap_define_context
+    context_id = self.zap.context.new_context(contextname=contextname)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/zapv2/context.py", line 90, in new_context
+    return six.next(six.itervalues(self.zap._request(self.zap.base + 'context/action/newContext/', {'contextName': contextname, 'apikey': apikey})))
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/zapv2/__init__.py", line 159, in _request
+    data = self._request_api(url, get)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/zapv2/__init__.py", line 149, in _request_api
+    return self.session.get(url, params=query, proxies=self.__proxies, verify=False)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/sessions.py", line 521, in get
+    return self.request('GET', url, **kwargs)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/adapters.py", line 502, in send
+    raise ProxyError(e, request=request)</msg>
+<status status="FAIL" starttime="20190611 07:20:33.490" endtime="20190611 07:20:33.834"></status>
+</kw>
+<status status="FAIL" starttime="20190611 07:20:33.489" endtime="20190611 07:20:33.834" critical="yes">ProxyError: HTTPConnectionPool(host='192.168.1.7', port=8090): Max retries exceeded with url: http://zap/JSON/context/action/newContext/?contextName=SecDevOps&amp;apikey= (Caused by ProxyError('Cannot connect to proxy.', NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10ed05320&gt;: Failed to establish a new connection: [Errno 61] Connection refused')))</status>
+</test>
+<test id="s1-t5" name="ZAP Crawl">
+<kw name="Zap Start Spider" library="RoboZap">
+<doc>Start ZAP Spider with ZAP's inbuilt spider mode</doc>
+<arguments>
+<arg>${CONTEXT}</arg>
+<arg>${ZAP_TARGET}</arg>
+</arguments>
+<assign>
+<var>${spider_id}</var>
+</assign>
+<msg timestamp="20190611 07:20:33.840" level="DEBUG">Starting new HTTP connection (1): 192.168.1.7</msg>
+<msg timestamp="20190611 07:20:33.842" level="FAIL">AttributeError: 'ProxyError' object has no attribute 'message'</msg>
+<msg timestamp="20190611 07:20:33.842" level="DEBUG">Traceback (most recent call last):
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/RoboZap.py", line 117, in zap_start_spider
+    print((e.message))</msg>
+<status status="FAIL" starttime="20190611 07:20:33.836" endtime="20190611 07:20:33.842"></status>
+</kw>
+<status status="FAIL" starttime="20190611 07:20:33.835" endtime="20190611 07:20:33.842" critical="yes">AttributeError: 'ProxyError' object has no attribute 'message'</status>
+</test>
+<test id="s1-t6" name="ZAP Active Scan">
+<kw name="Zap Start Ascan" library="RoboZap">
+<doc>Initiates ZAP Active Scan on the target url and context</doc>
+<arguments>
+<arg>${CONTEXT_ID}</arg>
+<arg>${ZAP_TARGET}</arg>
+<arg>${SCANPOLICY}</arg>
+</arguments>
+<assign>
+<var>${scan_id}</var>
+</assign>
+<msg timestamp="20190611 07:20:33.844" level="FAIL">Variable '${CONTEXT_ID}' not found. Did you mean:
+    ${CONTEXT}</msg>
+<status status="FAIL" starttime="20190611 07:20:33.843" endtime="20190611 07:20:33.844"></status>
+</kw>
+<status status="FAIL" starttime="20190611 07:20:33.843" endtime="20190611 07:20:33.844" critical="yes">Variable '${CONTEXT_ID}' not found. Did you mean:
+    ${CONTEXT}</status>
+</test>
+<test id="s1-t7" name="ZAP Generate Report">
+<kw name="Zap Export Report" library="RoboZap">
+<doc>This functionality works on ZAP 2.7.0 only. It leverages the Export Report Library to generate a report.
+Currently ExportReport doesnt have an API endpoint in python. We will be using the default ZAP REST API for this</doc>
+<arguments>
+<arg>${EXPORT_FILE_PATH}</arg>
+<arg>${REPORT_FORMAT}</arg>
+<arg>${REPORT_TITLE}</arg>
+<arg>${REPORT_AUTHOR}</arg>
+</arguments>
+<msg timestamp="20190611 07:20:33.848" level="DEBUG">Starting new HTTP connection (1): localhost</msg>
+<msg timestamp="20190611 07:20:33.850" level="FAIL">ConnectionError: HTTPConnectionPool(host='localhost', port=8090): Max retries exceeded with url: /JSON/exportreport/action/generate/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10f9116d8&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</msg>
+<msg timestamp="20190611 07:20:33.850" level="DEBUG">Traceback (most recent call last):
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/RoboZap.py", line 258, in zap_export_report
+    r = requests.post(url, data=data)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/api.py", line 112, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/api.py", line 58, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/sessions.py", line 508, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/sessions.py", line 618, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/sudarshannarayanan/Conferences/UCDavis_June2019/ZAP-Mini-Workshop/Robot_Walkthrough_ZAP/venv_Robot_ZAP/lib/python3.7/site-packages/requests/adapters.py", line 508, in send
+    raise ConnectionError(e, request=request)</msg>
+<status status="FAIL" starttime="20190611 07:20:33.845" endtime="20190611 07:20:33.851"></status>
+</kw>
+<status status="FAIL" starttime="20190611 07:20:33.845" endtime="20190611 07:20:33.851" critical="yes">ConnectionError: HTTPConnectionPool(host='localhost', port=8090): Max retries exceeded with url: /JSON/exportreport/action/generate/ (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10f9116d8&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</status>
+</test>
+<status status="FAIL" starttime="20190611 07:19:06.047" endtime="20190611 07:20:33.852"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="5">Critical Tests</stat>
+<stat pass="2" fail="5">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="5" id="s1" name="Walkthrough">Walkthrough</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

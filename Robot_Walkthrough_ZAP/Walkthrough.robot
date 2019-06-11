@@ -2,11 +2,20 @@
 Library  SeleniumLibrary
 Library  Collections
 Library  OperatingSystem
+Library  RoboZap  http://192.168.0.223:8090/  8090
+Library  OperatingSystem
 
 *** Variables ***
 ${BROWSER}  headlessfirefox
-${URL}  http://localhost:9000/
-
+${URL}  http://192.168.0.223:9000/
+${ZAP_PATH}  /Applications/OWASP ZAP.app/Contents/Java/zap.sh
+${ZAP_TARGET}  http://192.168.0.223:9000/
+${CONTEXT}  SecDevOps
+${REPORT_FORMAT}  json
+${REPORT_TITLE}  ZAP Report
+${REPORT_AUTHOR}  we45
+${EXPORT_FILE_PATH}  ${CURDIR}/zap.json
+${SCANPOLICY}  Light
 
 *** Test Cases ***
 Login to Wecare application
@@ -69,8 +78,31 @@ Secure Password
     set selenium implicit wait  10
     Sleep  2
 
-Logout
-    click Element  xpath=/html/body/div[2]/div/div[2]/div/nav/ul/li/a
-    set selenium implicit wait  10
-    click Element  xpath=/html/body/div[2]/div/div[2]/div/nav/ul/li/ul/li[3]/a
-    set selenium implicit wait  10
+# Logout
+#     click Element  xpath=/html/body/div[2]/div/div[2]/div/nav/ul/li/a
+#     set selenium implicit wait  10
+#     click Element  xpath=/html/body/div[2]/div/div[2]/div/nav/ul/li/ul/li[3]/a
+#     set selenium implicit wait  10
+
+Start ZAP
+    start headless zap  ${ZAP_PATH}
+    sleep  30
+    zap open url  ${ZAP_TARGET}
+
+ZAP Contextualize
+    ${contextid}=  zap define context  ${CONTEXT}  ${ZAP_TARGET}
+    set suite variable  ${CONTEXT_ID}  ${contextid}
+
+ZAP Crawl
+    ${spider_id}=  zap start spider  ${CONTEXT}  ${ZAP_TARGET}
+    zap spider status  ${spider_id}
+    sleep  30
+
+ZAP Active Scan
+    ${scan_id}=  zap start ascan  ${CONTEXT_ID}  ${ZAP_TARGET}  ${SCANPOLICY}
+    sleep  5
+    set suite variable  ${SCAN_ID}  ${scan_id}
+    zap scan status  ${scan_id}
+
+ZAP Generate Report
+    zap export report  ${EXPORT_FILE_PATH}  ${REPORT_FORMAT}  ${REPORT_TITLE}  ${REPORT_AUTHOR}
